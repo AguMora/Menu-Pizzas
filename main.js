@@ -26,7 +26,7 @@ const pizzas = [
     },
     {
         id: 6, 
-        nombre: "A caballo",
+        nombre: "De la Casa",
         precio: 1220,
     }
 ];
@@ -38,28 +38,27 @@ const info = document.getElementById("info");
 
 const renderPizza = () => {
      if (findPizza(pizzas) == undefined) {
-        Alert ("Elija una variedad entre 1 y 6");
+        alert("Elija una variedad entre 1 y 6");
         return
     }
      else {
         info.innerHTML = 
-        `<h2 class="name" id="name">Nombre pizza: ${findPizza(pizzas).nombre}</h2>`
-        `<h4 class="price" id="price">Precio: ${findPizza(pizzas).precio}<h4/>`
+        `<h2 class="name" id="name">Nombre pizza: ${findPizza(pizzas).nombre}</h2>
+        <h3 class="price" id="price">Precio: $${findPizza(pizzas).precio}<h4/>`
     }
     number.valor= ' ';
 }
 
 const findPizza = () => {
-    const valor = input.value;
-    const pizzaMenu = pizzas.find(pizzas => pizzas.id = valor)
+    const valor = input.value.trim();
+    const pizzaMenu = pizzas.find(pizza => pizza.id == valor)
     return pizzaMenu;
 }
 
 
-// const eventPizza = e => {
-//     e.preventDefault(e);
-//     const valor = input.value.trim();
-// }
+const eventPizza = e => {
+    e.preventDefault(e);
+}
 
 const init = () => {
     btn.addEventListener("click", renderPizza);
